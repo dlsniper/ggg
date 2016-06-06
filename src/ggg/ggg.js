@@ -28,8 +28,11 @@ observer.observe($("div#js-pjax-loader-bar")[0], {
 });
 
 function ggg() {
+    if ($("div.btn.btn-sm.ggg-btn").length > 0) return;
+
     $("span[itemprop='keywords'].language-color").each(function () {
         if ($(this).text() !== 'Go') return;
+
         $("div.select-menu-modal-holder.dropdown-menu-content.js-menu-content")
             .after("<div class='btn btn-sm ggg-btn'><div class='ggg-gopher'></div></div>");
 
