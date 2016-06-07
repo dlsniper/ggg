@@ -18,7 +18,8 @@ function save_options() {
         fetchUpdate: document.getElementById('update').checked,
         fetchVerbose: document.getElementById('verbose').checked,
         fetchTest: document.getElementById('test').checked,
-        fetchSubPackages: document.getElementById('subpackages').checked
+        fetchSubPackages: document.getElementById('subpackages').checked,
+        newWindow: document.getElementById('newWindow').checked
     }, function () {
         var status = document.getElementById('status');
         status.textContent = 'Options saved.';
@@ -39,6 +40,7 @@ function restore_options() {
         document.getElementById('verbose').checked = items.fetchVerbose;
         document.getElementById('test').checked = items.fetchTest;
         document.getElementById('subpackages').checked = items.fetchSubPackages;
+        document.getElementById('newWindow').checked = items.newWindow;
     });
 }
 

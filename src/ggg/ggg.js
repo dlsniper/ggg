@@ -36,13 +36,37 @@ function ggg() {
         $("div.select-menu-modal-holder.dropdown-menu-content.js-menu-content")
             .after("<div class='btn btn-sm ggg-btn'><div class='ggg-gopher'></div></div>");
 
-        $("div.ggg-btn").click(function () {
+        $("div.ggg-btn").click(function (event) {
+            var pkg = "github.com" + window.location.pathname.replace(/\/$/, "");
+            var location = "";
+
+            if (event.ctrlKey) {
+                location = "https://godoc.org/" + pkg;
+            }
+
+
+            if (event.altKey) {
+                location = "https://goreportcard.com/report/" + pkg;
+            }
+
+            if (event.shiftKey) {
+                location = "https://sourcegraph.com/" + pkg;
+
+            }
+
+            if (location !== "") {
+                if (options.newWindow) {
+                    window.open(location);
+                } else {
+                    window.location = location;
+                }
+            }
+
             var fetchOptions = "";
             if (options.fetchUpdate) fetchOptions += "--u";
             if (options.fetchVerbose) fetchOptions += "--v";
             if (options.fetchTest) fetchOptions += "--t";
 
-            var pkg = "github.com" + window.location.pathname.replace(/\/$/, "");
 
             if (options.fetchSubPackages) pkg += "/...";
             copyToClipboard("go get" + fetchOptions.replace(/--/g, " -") + " " + pkg);
@@ -59,7 +83,8 @@ var init = function () {
         fetchUpdate: true,
         fetchVerbose: false,
         fetchTest: false,
-        fetchSubPackages: false
+        fetchSubPackages: false,
+        newWindow: false
     }, function (items) {
         options = items;
     });

@@ -12,6 +12,16 @@ The button will copy to clipboard the following command:
 
 To install this, visit the [Chrome Store](https://chrome.google.com/webstore/detail/go-get-for-github/ahkfiobnoafagbaaghmbbopfdpdbaidi)
 
+## Usage
+
+See options to get the options for this extension.
+
+Usage:
+- left click copies the `go get` command to clipboard
+- CTRL + left click opens godoc.org for the current repository
+- ALT + left click opens goreportcard.com for the current repository
+- SHIFT + left click opens Sourcegraph for the current repository
+
 ## License
 
 Copyright 2016 Florin Pățan
