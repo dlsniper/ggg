@@ -40,19 +40,9 @@ function ggg() {
             var pkg = "github.com" + window.location.pathname.replace(/\/$/, "");
             var location = "";
 
-            if (event.ctrlKey) {
-                location = "https://godoc.org/" + pkg;
-            }
-
-
-            if (event.altKey) {
-                location = "https://goreportcard.com/report/" + pkg;
-            }
-
-            if (event.shiftKey) {
-                location = "https://sourcegraph.com/" + pkg;
-
-            }
+            if (event.ctrlKey) location = "https://godoc.org/" + pkg;
+            if (event.altKey) location = "https://goreportcard.com/report/" + pkg;
+            if (event.shiftKey) location = "https://sourcegraph.com/" + pkg;
 
             if (location !== "") {
                 if (options.newWindow) {
@@ -60,6 +50,7 @@ function ggg() {
                 } else {
                     window.location = location;
                 }
+                return;
             }
 
             var fetchOptions = "";
