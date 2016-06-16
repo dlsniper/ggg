@@ -40,11 +40,14 @@ function ggg() {
             var pkg = "github.com" + window.location.pathname.replace(/\/$/, "");
             var location = "";
 
-            if (event.ctrlKey) location = "https://godoc.org/" + pkg;
+            console.log(event);
+
+            if (event.ctrlKey || event.metaKey) location = "https://godoc.org/" + pkg;
             if (event.altKey) location = "https://goreportcard.com/report/" + pkg;
             if (event.shiftKey) location = "https://sourcegraph.com/" + pkg;
 
             if (location !== "") {
+                event.preventDefault();
                 if (options.newWindow) {
                     window.open(location);
                 } else {
